@@ -1,0 +1,7 @@
+{
+  "name": "geohueco-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

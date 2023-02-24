@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Listado de Baches
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--Mostrar los baches en tarjetas-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Baches</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let bache of baches">
+          <ion-label>
+            <h2>Bache: {{bache.id}}</h2>
+            <p>Usuario: {{bache.usuario.nombre}}</p>
+            <p>Descripcion: {{bache.descripcion}}</p>
+            <p>Latitud: {{bache.latitud}}</p>
+            <p>Longitud: {{bache.longitud}}</p>
+            <ion-img src={{bache.foto}} alt="" width="1" height="1"></ion-img>
+            <!--Boton para eliminar bache de database-->
+            <ion-button (click)="eliminarBache(bache)">Eliminar</ion-button>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

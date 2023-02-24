@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Descripcion de Bachecillo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--Crud de Ingreso de datos de bache con foto y geolocalizacion-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Baches de Cuenca</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!--escoger un usuario de la lista-->
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-select [(ngModel)]="bache.usuario">
+          <ion-select-option *ngFor="let usuario of usuarios" [value]="usuario">{{usuario.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <!--Descripcion-->
+      <ion-item>
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-input type="text" [(ngModel)]="bache.descripcion"></ion-input>
+      </ion-item>
+      <!--Tomar foto con boton-->
+      <ion-card-content>
+        <ion-button expand="block" (click)="tomarFoto()" (click)="geolocalizacion()">Tomar Foto</ion-button>
+      </ion-card-content>
+      <!--Mostrar la geolocalizacion-->
+      <ion-item>
+        <ion-label position="floating">Coordenadas</ion-label>
+        <ion-input type="text" value={{this.latitud}} style="font-size: 1ch;"></ion-input>
+        <ion-input type="text" value={{this.longitud}} style="font-size: 1ch;"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!--Mostrar foto tomada de base-->
+  <ion-card>
+    <ion-img src={{this.foto}} alt=""></ion-img>
+  </ion-card>
+
+  <!--boton guardar-->
+  <ion-card>
+    <ion-card-content>
+      <ion-button expand="block" (click)="guardarBache()" (click)="limpiarImagen()">Guardar Informacion</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!--Mostrar los baches
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Baches</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let bache of baches">
+          <ion-label>{{bache.descripcion}} {{bache.latitud}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>-->
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ingreso de Datos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--Crud de Ingreso de datos de Usuario-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ingreso de Datos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.apellido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="email" [(ngModel)]="usuario.usuario"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="guardarUsuario()">Ingresar Datos</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <!--Mostrar los usuarios-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Usuarios</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let usuario of usuarios">
+          <ion-label>{{usuario.nombre}} {{usuario.apellido}}</ion-label>
+          <!--Boton de modificar y eliminar-->
+          <ion-button (click)="eliminarUsuario(usuario)">Eliminar</ion-button>
+          <ion-button (click)="modificarUsuario(usuario)">Modificar</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
